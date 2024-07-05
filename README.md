@@ -42,6 +42,22 @@ We will then send you a link to FSGAN's shared directory and download script.
 python download_fsgan_models.py   # From the repository root directory
 ```
 
+If you run into ffprobe error during inference:
+
+<!-- 1. install livopenh264
+`conda install -c conda-forge openh264` -->
+
+
+2. if libopenh264 installed but still not working:
+ https://stackoverflow.com/questions/62213783/ffmpeg-error-while-loading-shared-libraries-libopenh264-so-5
+- find out where conda is
+`which conda`
+- make a soft link based on python/conda location
+`ln -s CONDA_PATH/lib/libopenh264.so CONDA_PATH/envs/py38/lib/libopenh264.so.5`
+`ln -s /opt/conda/envs/fsgan/lib/libopenh264.so /opt/conda/envs/fsgan/lib/libopenh264.so.5`
+
+
+
 ## Inference
 - [Face swapping guide](https://github.com/YuvalNirkin/fsgan/wiki/Face-Swapping-Inference)
 - [Face swapping Google Colab](fsgan/inference/face_swapping.ipynb)
